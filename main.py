@@ -32,5 +32,5 @@ for x in repoList:
 
 percentages = {}
 for lang in language:
-    percentages[lang] = "{0: .4f}".format((language[lang] / float(total)) * 100) + " %"
+    percentages[lang] = "{0:.4f}".format((language[lang] / float(total)) * 100) + " %"
 print json.dumps(percentages, indent=1)
