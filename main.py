@@ -16,4 +16,21 @@ repoJson = json.loads(repos.text)
 repoList = []
 for x in repoJson:
     repoList.append(x['name'])
-print repoList
+
+language = {}
+total = 0
+for x in repoList:
+    repoStat = requests.get(API_URL + '/repos/' + name + '/' + x + '/languages', auth=(name, password))
+    repoStatJson = json.loads(repoStat.text)
+    for y in repoStatJson:
+        if y in language:
+            language[y] += repoStatJson[y]
+            total += repoStatJson[y]
+        else:
+            language[y] = repoStatJson[y]
+            total += repoStatJson[y]
+print total
+percentages = {}
+for lang in language:
+    percentages[lang] = "{0: .4f}".format((language[lang] / float(total)) * 100) + "%"
+print percentages
