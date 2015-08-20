@@ -29,8 +29,8 @@ for x in repoList:
         else:
             language[y] = repoStatJson[y]
             total += repoStatJson[y]
-print total
+
 percentages = {}
 for lang in language:
-    percentages[lang] = "{0: .4f}".format((language[lang] / float(total)) * 100) + "%"
-print percentages
+    percentages[lang] = "{0: .4f}".format((language[lang] / float(total)) * 100) + " %"
+print json.dumps(percentages, indent=1)
