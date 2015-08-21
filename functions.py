@@ -39,9 +39,15 @@ def parseLanguageStats(language, percentages, total):
     for lang in language:
         percentages[lang] = "{0:.4f}".format((language[lang] / float(total)) * 100) + " %"
 
+def parseLanguageWeights(individual, result):
+    for ind in individual:
+        for lang in individual[ind]:
+            result.setdefault(lang, []).append(individual[ind][lang])
+    print result
 
-def writeLanguageStats(name, percentages, individual):
+def writeLanguageStats(name, percentages, individual, total):
     with open('report.txt', 'w') as outfile:
+        outfile.write('Total bytes: ' + str(total))
         outfile.write('Overall code usage for '+name+':\n')
         outfile.write(json.dumps(percentages, indent=1))
         outfile.write('\n\nBreakdown by repo:\n')
