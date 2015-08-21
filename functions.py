@@ -21,10 +21,11 @@ def getNamedRepos(repoList, name, password):
         repoList.append(x['name'])
 
 
-def getLanguageStats(repoList, total, language, name, password):
+def getLanguageStats(repoList, total, language, name, password, individual):
     for x in repoList:
         repoStat = requests.get(API_URL + '/repos/' + name + '/' + x + '/languages', auth=(name, password))
         repoStatJson = json.loads(repoStat.text)
+        individual[x] = repoStatJson
         for y in repoStatJson:
             if y in language:
                 language[y] += repoStatJson[y]
@@ -39,12 +40,12 @@ def parseLanguageStats(language, percentages, total):
         percentages[lang] = "{0:.4f}".format((language[lang] / float(total)) * 100) + " %"
 
 
-def writeLanguageStats(name, percentages, language):
+def writeLanguageStats(name, percentages, individual):
     with open('report.txt', 'w') as outfile:
         outfile.write('Overall code usage for '+name+':\n')
         outfile.write(json.dumps(percentages, indent=1))
         outfile.write('\n\nBreakdown by repo:\n')
-        outfile.write(json.dumps(language, indent=1))
+        outfile.write(json.dumps(individual, indent=1))
         outfile.write('\n')
     print('Generated report.txt')
 

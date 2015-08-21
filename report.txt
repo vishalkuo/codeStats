@@ -1,31 +1,99 @@
 Overall code usage for vishalkuo:
-
 {
- "Java": "17.3460 %", 
- "Arduino": "1.1061 %", 
- "Python": "4.5304 %", 
- "Swift": "0.7472 %", 
- "JavaScript": "18.4962 %", 
- "C#": "0.9434 %", 
- "Objective-C": "50.3202 %", 
- "HTML": "3.5144 %", 
- "PHP": "1.9088 %", 
+ "Java": "17.3363 %", 
+ "Arduino": "1.1055 %", 
+ "Python": "4.5836 %", 
+ "Swift": "0.7468 %", 
+ "JavaScript": "18.4859 %", 
+ "C#": "0.9428 %", 
+ "Objective-C": "50.2922 %", 
+ "HTML": "3.5125 %", 
+ "PHP": "1.9077 %", 
  "Ruby": "0.0042 %", 
- "CSS": "1.0832 %"
+ "CSS": "1.0826 %"
 }
 
 Breakdown by repo:
-
 {
- "Java": 199979, 
- "Arduino": 12752, 
- "Python": 52230, 
- "Ruby": 48, 
- "JavaScript": 213239, 
- "C#": 10876, 
- "Objective-C": 580133, 
- "HTML": 40517, 
- "PHP": 22006, 
- "Swift": 8614, 
- "CSS": 12488
+ "hackRPI": {
+  "Swift": 8614
+ }, 
+ "starRush": {
+  "Objective-C": 33564
+ }, 
+ "gardenWarsPython": {
+  "Python": 43313
+ }, 
+ "gitScrub": {
+  "JavaScript": 29652
+ }, 
+ "Grumble": {
+  "JavaScript": 8179, 
+  "HTML": 3419, 
+  "CSS": 1765
+ }, 
+ "AngelHack": {
+  "Python": 253, 
+  "PHP": 2171, 
+  "Java": 26139, 
+  "JavaScript": 189
+ }, 
+ "ArduinoPlayground": {
+  "Arduino": 809
+ }, 
+ "FuturesRevealed": {
+  "Objective-C": 39688, 
+  "HTML": 3808, 
+  "Java": 34848, 
+  "JavaScript": 2169, 
+  "PHP": 1373
+ }, 
+ "jenqueue": {
+  "Python": 6990
+ }, 
+ "textBasedBattleShip": {
+  "C#": 10876
+ }, 
+ "tapMeiOS": {
+  "Objective-C": 6479
+ }, 
+ "dinnerBell": {
+  "JavaScript": 31224, 
+  "PHP": 6796, 
+  "CSS": 9043
+ }, 
+ "pasteDump": {
+  "Java": 19603, 
+  "JavaScript": 3445, 
+  "Objective-C": 42693, 
+  "HTML": 274, 
+  "PHP": 4440, 
+  "Ruby": 48, 
+  "CSS": 110
+ }, 
+ "arduinoBrakelightBackpack": {
+  "Arduino": 11943
+ }, 
+ "summon": {
+  "Objective-C": 457709, 
+  "JavaScript": 6509, 
+  "Java": 44336, 
+  "HTML": 507, 
+  "CSS": 613
+ }, 
+ "vishalkuo.com": {
+  "JavaScript": 131872, 
+  "HTML": 32509, 
+  "CSS": 957, 
+  "PHP": 7226
+ }, 
+ "codeStats": {
+  "Python": 2317
+ }, 
+ "dotDash": {
+  "Java": 21541
+ }, 
+ "BlackJack": {
+  "Java": 53512
+ }
 }
