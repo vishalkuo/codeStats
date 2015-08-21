@@ -1,28 +1,28 @@
 Overall code usage for vishalkuo
 {
- "Java": "17.2183 %", 
- "Arduino": "1.0980 %", 
- "Python": "5.1461 %", 
- "Swift": "0.7417 %", 
- "JavaScript": "18.2966 %", 
- "C#": "0.9364 %", 
- "Objective-C": "49.9498 %", 
- "HTML": "3.6204 %", 
- "PHP": "1.8947 %", 
+ "Java": "17.2268 %", 
+ "Arduino": "1.0985 %", 
+ "Python": "5.1864 %", 
+ "Swift": "0.7420 %", 
+ "JavaScript": "18.3691 %", 
+ "C#": "0.9369 %", 
+ "Objective-C": "49.9745 %", 
+ "HTML": "3.4903 %", 
+ "PHP": "1.8957 %", 
  "Ruby": "0.0041 %", 
- "CSS": "1.0938 %"
+ "CSS": "1.0758 %"
 }
 Breakdown by repo
 {
  "Java": 199979, 
  "Arduino": 12752, 
- "Python": 59769, 
+ "Python": 60207, 
  "Ruby": 48, 
- "JavaScript": 212503, 
+ "JavaScript": 213239, 
  "C#": 10876, 
  "Objective-C": 580133, 
- "HTML": 42049, 
+ "HTML": 40517, 
  "PHP": 22006, 
  "Swift": 8614, 
- "CSS": 12704
+ "CSS": 12488
 }
