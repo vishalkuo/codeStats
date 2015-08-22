@@ -43,17 +43,23 @@ def parseLanguageStats(language, percentages, total):
     for lang in language:
         percentages[lang] = "{0:.4f}".format((language[lang] / float(total)) * 100) + " %"
 
-def parseLanguageWeights(individual, result):
+def parseProjectWeights(individual, total):
+    for ind in individual:
+        ind_total = individual[ind]['Total']
+        individual[ind]['Weight'] = formatZero((ind_total / float(total)), 4)
+
+def parseLanguageWeights(individual, userTotal, result):
+    total = None
     for ind in individual:
         total = individual[ind]['Total']
+        weight = individual[ind]['Weight']
         for lang in individual[ind]['Breakdown']:
-            result.setdefault(lang, []).append(float(individual[ind]['Breakdown'][lang]) / total)
+            result.setdefault(lang, []).append((float(individual[ind]['Breakdown'][lang]) / total) * float(weight))
     for key in result:
         avg = 0
         for lang in result[key]:
             avg = average(result[key])
-        result[key] = "{0:.4f}".format(avg * 100)
-    print result
+        result[key] = "{0:.4f}".format((avg * 100) )
 
 def average(list):
     return float(sum(list))/len(list) if len(list) > 0 else float('nan')
@@ -68,6 +74,5 @@ def writeLanguageStats(name, percentages, individual, total):
         outfile.write('\n')
     print('Generated report.txt')
 
-
-
-
+def formatZero(exp, zero):
+    return ("{0:." + str(zero) + "f}").format(exp)
