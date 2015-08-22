@@ -45,8 +45,18 @@ def parseLanguageStats(language, percentages, total):
 
 def parseLanguageWeights(individual, result):
     for ind in individual:
-        for lang in individual[ind]:
-            result.setdefault(lang, []).append(individual[ind][lang])
+        total = individual[ind]['Total']
+        for lang in individual[ind]['Breakdown']:
+            result.setdefault(lang, []).append(float(individual[ind]['Breakdown'][lang]) / total)
+    for key in result:
+        avg = 0
+        for lang in result[key]:
+            avg = average(result[key])
+        result[key] = "{0:.4f}".format(avg * 100)
+    print result
+
+def average(list):
+    return float(sum(list))/len(list) if len(list) > 0 else float('nan')
 
 def writeLanguageStats(name, percentages, individual, total):
     with open('report.txt', 'w') as outfile:
