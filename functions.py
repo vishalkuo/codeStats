@@ -25,14 +25,18 @@ def getLanguageStats(repoList, total, language, name, password, individual):
     for x in repoList:
         repoStat = requests.get(API_URL + '/repos/' + name + '/' + x + '/languages', auth=(name, password))
         repoStatJson = json.loads(repoStat.text)
-        individual[x] = repoStatJson
+        individual.update({x:{}})
+        individual[x].update({'Breakdown':repoStatJson})
+        individual[x]['Total'] = 0
+        indTotal = 0
         for y in repoStatJson:
             if y in language:
                 language[y] += repoStatJson[y]
-                total += repoStatJson[y]
             else:
                 language[y] = repoStatJson[y]
-                total += repoStatJson[y]
+            total += repoStatJson[y]
+            indTotal += repoStatJson[y]
+        individual[x]['Total'] = indTotal
     return total
 
 def parseLanguageStats(language, percentages, total):
@@ -43,12 +47,11 @@ def parseLanguageWeights(individual, result):
     for ind in individual:
         for lang in individual[ind]:
             result.setdefault(lang, []).append(individual[ind][lang])
-    print result
 
 def writeLanguageStats(name, percentages, individual, total):
     with open('report.txt', 'w') as outfile:
         outfile.write('Total bytes: ' + str(total))
-        outfile.write('Overall code usage for '+name+':\n')
+        outfile.write('\n\nOverall code usage for '+name+':\n')
         outfile.write(json.dumps(percentages, indent=1))
         outfile.write('\n\nBreakdown by repo:\n')
         outfile.write(json.dumps(individual, indent=1))

@@ -1,99 +1,158 @@
-Total bytes: 1153608Overall code usage for vishalkuo:
+Total bytes: 1167254
+
+Overall code usage for vishalkuo:
 {
- "Java": "17.3351 %", 
- "Arduino": "1.1054 %", 
- "Python": "4.5905 %", 
- "Swift": "0.7467 %", 
- "JavaScript": "18.4845 %", 
- "C#": "0.9428 %", 
- "Objective-C": "50.2886 %", 
- "HTML": "3.5122 %", 
- "PHP": "1.9076 %", 
- "Ruby": "0.0042 %", 
- "CSS": "1.0825 %"
+ "Java": "17.1324 %", 
+ "Arduino": "1.0925 %", 
+ "Python": "4.5648 %", 
+ "Swift": "0.7380 %", 
+ "JavaScript": "19.4095 %", 
+ "C#": "0.9318 %", 
+ "Objective-C": "49.7007 %", 
+ "HTML": "3.4711 %", 
+ "PHP": "1.8853 %", 
+ "Ruby": "0.0041 %", 
+ "CSS": "1.0699 %"
 }
 
 Breakdown by repo:
 {
  "hackRPI": {
-  "Swift": 8614
+  "Breakdown": {
+   "Swift": 8614
+  }, 
+  "Total": 8614
  }, 
  "starRush": {
-  "Objective-C": 33564
+  "Breakdown": {
+   "Objective-C": 33564
+  }, 
+  "Total": 33564
  }, 
  "gardenWarsPython": {
-  "Python": 43313
+  "Breakdown": {
+   "Python": 43313
+  }, 
+  "Total": 43313
  }, 
  "gitScrub": {
-  "JavaScript": 29652
+  "Breakdown": {
+   "JavaScript": 29652
+  }, 
+  "Total": 29652
  }, 
  "Grumble": {
-  "JavaScript": 8179, 
-  "HTML": 3419, 
-  "CSS": 1765
+  "Breakdown": {
+   "JavaScript": 8179, 
+   "HTML": 3419, 
+   "CSS": 1765
+  }, 
+  "Total": 13363
  }, 
  "AngelHack": {
-  "Python": 253, 
-  "PHP": 2171, 
-  "Java": 26139, 
-  "JavaScript": 189
+  "Breakdown": {
+   "Python": 253, 
+   "PHP": 2171, 
+   "Java": 26139, 
+   "JavaScript": 189
+  }, 
+  "Total": 28752
  }, 
  "ArduinoPlayground": {
-  "Arduino": 809
+  "Breakdown": {
+   "Arduino": 809
+  }, 
+  "Total": 809
  }, 
  "FuturesRevealed": {
-  "Objective-C": 39688, 
-  "HTML": 3808, 
-  "Java": 34848, 
-  "JavaScript": 2169, 
-  "PHP": 1373
+  "Breakdown": {
+   "Objective-C": 39688, 
+   "HTML": 3808, 
+   "Java": 34848, 
+   "JavaScript": 2169, 
+   "PHP": 1373
+  }, 
+  "Total": 81886
  }, 
  "jenqueue": {
-  "Python": 6990
+  "Breakdown": {
+   "Python": 6990
+  }, 
+  "Total": 6990
  }, 
  "textBasedBattleShip": {
-  "C#": 10876
+  "Breakdown": {
+   "C#": 10876
+  }, 
+  "Total": 10876
  }, 
  "tapMeiOS": {
-  "Objective-C": 6479
- }, 
- "dinnerBell": {
-  "JavaScript": 31224, 
-  "PHP": 6796, 
-  "CSS": 9043
- }, 
- "pasteDump": {
-  "Java": 19603, 
-  "JavaScript": 3445, 
-  "Objective-C": 42693, 
-  "HTML": 274, 
-  "PHP": 4440, 
-  "Ruby": 48, 
-  "CSS": 110
- }, 
- "arduinoBrakelightBackpack": {
-  "Arduino": 11943
- }, 
- "summon": {
-  "Objective-C": 457709, 
-  "JavaScript": 6509, 
-  "Java": 44336, 
-  "HTML": 507, 
-  "CSS": 613
- }, 
- "vishalkuo.com": {
-  "JavaScript": 131872, 
-  "HTML": 32509, 
-  "CSS": 957, 
-  "PHP": 7226
- }, 
- "codeStats": {
-  "Python": 2400
- }, 
- "dotDash": {
-  "Java": 21541
+  "Breakdown": {
+   "Objective-C": 6479
+  }, 
+  "Total": 6479
  }, 
  "BlackJack": {
-  "Java": 53512
+  "Breakdown": {
+   "Java": 53512
+  }, 
+  "Total": 53512
+ }, 
+ "pasteDump": {
+  "Breakdown": {
+   "Java": 19603, 
+   "JavaScript": 3445, 
+   "Objective-C": 42693, 
+   "HTML": 274, 
+   "PHP": 4440, 
+   "Ruby": 48, 
+   "CSS": 110
+  }, 
+  "Total": 70613
+ }, 
+ "arduinoBrakelightBackpack": {
+  "Breakdown": {
+   "Arduino": 11943
+  }, 
+  "Total": 11943
+ }, 
+ "summon": {
+  "Breakdown": {
+   "Objective-C": 457709, 
+   "JavaScript": 6509, 
+   "Java": 44336, 
+   "HTML": 507, 
+   "CSS": 613
+  }, 
+  "Total": 509674
+ }, 
+ "vishalkuo.com": {
+  "Breakdown": {
+   "JavaScript": 145191, 
+   "HTML": 32509, 
+   "CSS": 957, 
+   "PHP": 7226
+  }, 
+  "Total": 185883
+ }, 
+ "codeStats": {
+  "Breakdown": {
+   "Python": 2727
+  }, 
+  "Total": 2727
+ }, 
+ "dotDash": {
+  "Breakdown": {
+   "Java": 21541
+  }, 
+  "Total": 21541
+ }, 
+ "dinnerBell": {
+  "Breakdown": {
+   "JavaScript": 31224, 
+   "PHP": 6796, 
+   "CSS": 9043
+  }, 
+  "Total": 47063
  }
 }
