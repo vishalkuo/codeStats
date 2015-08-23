@@ -3,16 +3,19 @@ import getpass, requests, json
 API_URL = "https://api.github.com"
 
 def authenticate():
-    name = raw_input("Enter your Github username: ")
-    password = getpass.getpass("Enter your Github password: ")
-    r = requests.get(API_URL, auth=(name, password))
-    while r.status_code != 200:
-        print("Bad Credentials!")
+    try:
         name = raw_input("Enter your Github username: ")
         password = getpass.getpass("Enter your Github password: ")
-        r = requests.get('https://api.github.com', auth=(name, password))
-    return {'name': name, 'password': password}
-
+        r = requests.get(API_URL, auth=(name, password))
+        while r.status_code != 200:
+            print("Bad Credentials!")
+            name = raw_input("Enter your Github username: ")
+            password = getpass.getpass("Enter your Github password: ")
+            r = requests.get('https://api.github.com', auth=(name, password))
+        return {'name': name, 'password': password}
+    except EOFError:
+        print "\n"
+        sys.exit(0)
 
 def getNamedRepos(repoList, name, password):
     repos = requests.get(API_URL + '/user/repos?visibility=public', auth=(name, password))
@@ -44,32 +47,36 @@ def parseLanguageStats(language, percentages, total):
         percentages[lang] = "{0:.4f}".format((language[lang] / float(total)) * 100) + " %"
 
 def parseProjectWeights(individual, total):
+    testList = []
     for ind in individual:
         ind_total = individual[ind]['Total']
         individual[ind]['Weight'] = formatZero((ind_total / float(total)), 4)
 
-def parseLanguageWeights(individual, userTotal, result):
+def parseLanguageWeights(individual, result):
     total = None
     for ind in individual:
         total = individual[ind]['Total']
         weight = individual[ind]['Weight']
         for lang in individual[ind]['Breakdown']:
-            result.setdefault(lang, []).append((float(individual[ind]['Breakdown'][lang]) / total) * float(weight))
+            result.setdefault(lang, []).append((float(individual[ind]['Breakdown'][lang]) / total) * float(weight) * 100)
+    for key in result:    
+        avg = average(result[key])
+        result[key] = avg * 100
+    result_sum = sum(map(float, result.values()))
     for key in result:
-        avg = 0
-        for lang in result[key]:
-            avg = average(result[key])
-        result[key] = "{0:.4f}".format((avg * 100) )
+        result[key] = formatZero(result[key]/float(result_sum) * 100, 4)
 
 def average(list):
     return float(sum(list))/len(list) if len(list) > 0 else float('nan')
 
-def writeLanguageStats(name, percentages, individual, total):
+def writeLanguageStats(name, percentages, individual, weights,total):
     with open('report.txt', 'w') as outfile:
         outfile.write('Total bytes: ' + str(total))
         outfile.write('\n\nOverall code usage for '+name+':\n')
         outfile.write(json.dumps(percentages, indent=1))
-        outfile.write('\n\nBreakdown by repo:\n')
+        outfile.write('\n\nLanguage weights, this is avg(langPercentPerProject)/sum(allAvgsFromNumerator): ')
+        outfile.write(json.dumps(weights, indent=1))
+        outfile.write('\n\nBreakdown by repo including weights:\n')
         outfile.write(json.dumps(individual, indent=1))
         outfile.write('\n')
     print('Generated report.txt')
