@@ -14,6 +14,7 @@ Overall code usage for vishalkuo:
  "Ruby": "0.0041 %", 
  "CSS": "1.0625 %"
 }
+
 Language weights, this is avg(langPercentPerProject)/sum(allAvgsFromNumerator): {
  "Java": "14.2975", 
  "Arduino": "2.7478", 
@@ -28,7 +29,7 @@ Language weights, this is avg(langPercentPerProject)/sum(allAvgsFromNumerator): 
  "CSS": "1.0710"
 }
 
-Breakdown by repo:
+Breakdown by repo including weights:
 {
  "hackRPI": {
   "Breakdown": {
