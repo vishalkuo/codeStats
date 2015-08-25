@@ -1,11 +1,18 @@
-import getpass, requests, json
+import getpass, requests, json, utils.imports as imports
 
 API_URL = "https://api.github.com"
 
 def authenticate():
+    secret = None
     try:
-        name = raw_input("Enter your Github username: ")
-        password = getpass.getpass("Enter your Github password: ")
+        if imports.module_exists("secret"):
+            secret = __import__("secret")
+            name = secret.username
+            password = secret.password
+            print ("Found secret.py. Attempting to login using these credentials")
+        else:
+            name = raw_input("Enter your Github username: ")
+            password = getpass.getpass("Enter your Github password: ")
         r = requests.get(API_URL, auth=(name, password))
         while r.status_code != 200:
             print("Bad Credentials!")
