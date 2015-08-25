@@ -1,4 +1,4 @@
-import getpass, requests, json, utils.imports as imports
+import getpass, requests, json, utils.imports as imports, sys
 
 API_URL = "https://api.github.com"
 
@@ -13,6 +13,7 @@ def authenticate():
         else:
             name = raw_input("Enter your Github username: ")
             password = getpass.getpass("Enter your Github password: ")
+        print("Authenticating...")
         r = requests.get(API_URL, auth=(name, password))
         while r.status_code != 200:
             print("Bad Credentials!")
@@ -27,12 +28,16 @@ def authenticate():
 def getNamedRepos(repoList, name, password):
     repos = requests.get(API_URL + '/user/repos?visibility=public', auth=(name, password))
     repoJson = json.loads(repos.text)
+    print("Grabbing all repos...")
     for x in repoJson:
         repoList.append(x['name'])
-
+    sys.stdout.flush()
 
 def getLanguageStats(repoList, total, language, name, password, individual):
-    for x in repoList:
+    print ("Getting language stats for repos...")
+    n = len(repoList)
+    for i in range(0,n):
+        x = repoList[i]
         repoStat = requests.get(API_URL + '/repos/' + name + '/' + x + '/languages', auth=(name, password))
         repoStatJson = json.loads(repoStat.text)
         individual.update({x:{}})
@@ -60,6 +65,7 @@ def parseProjectWeights(individual, total):
         individual[ind]['Weight'] = formatZero((ind_total / float(total)), 4)
 
 def parseLanguageWeights(individual, result):
+    print('Guessing (language) weights...')
     total = None
     for ind in individual:
         total = individual[ind]['Total']
