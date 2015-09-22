@@ -82,17 +82,5 @@ def parseLanguageWeights(individual, result):
 def average(list):
     return float(sum(list))/len(list) if len(list) > 0 else float('nan')
 
-def writeLanguageStats(name, percentages, individual, weights,total):
-    with open('report.txt', 'w') as outfile:
-        outfile.write('Total bytes: ' + str(total))
-        outfile.write('\n\nOverall code usage for '+name+':\n')
-        outfile.write(json.dumps(percentages, indent=1))
-        outfile.write('\n\nLanguage weights, this is avg(langPercentPerProject)/sum(allAvgsFromNumerator): ')
-        outfile.write(json.dumps(weights, indent=1))
-        outfile.write('\n\nBreakdown by repo including weights:\n')
-        outfile.write(json.dumps(individual, indent=1))
-        outfile.write('\n')
-    print('Generated report.txt')
-
 def formatZero(exp, zero):
     return ("{0:." + str(zero) + "f}").format(exp)

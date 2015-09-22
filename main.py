@@ -1,4 +1,4 @@
-import functions, signal, sys
+import functions, signal, sys, utils.writer as writer
 
 auth = {'name':None, 'password':None}
 repoList = []
@@ -19,7 +19,7 @@ total = functions.getLanguageStats(repoList, total, language, auth['name'], auth
 functions.parseLanguageStats(language, percentages, total)
 functions.parseProjectWeights(individual, total)
 functions.parseLanguageWeights(individual,  weights)
-functions.writeLanguageStats(auth['name'], percentages, individual, weights ,total)
+writer.writeLanguageStats(auth['name'], percentages, individual, weights ,total)
 
 
 
